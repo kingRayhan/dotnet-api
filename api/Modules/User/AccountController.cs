@@ -1,20 +1,15 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using api.Common;
 using api.Common.Services;
 using api.Data;
 using api.Entities;
 using api.Modules.User.Dtos;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 
 namespace api.Modules.User;
 
 public class AccountController: ApiBaseController
 {
     private readonly DatabaseContext _dbContext;
-    private readonly IConfiguration _config;
     private readonly TokenService _tokenService;
 
     public AccountController(DatabaseContext dbContext, TokenService tokenService)
@@ -47,19 +42,19 @@ public class AccountController: ApiBaseController
     public ActionResult<string> Login([FromBody] LoginUserDto dto)
     {
         var user = _dbContext.Users.SingleOrDefault(u => u.UserName == dto.UserName);
-        if (user == null) return Unauthorized();
         
+        if (user == null) return Unauthorized();
         if(!BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash)) return Unauthorized();
         
         
+
         return Ok(new
         {
-            token = _tokenService.GenerateToken(new GenerateTokenPayload()
+            token = _tokenService.GenerateToken(new GenerateTokenPayload
             {
-                UserId = user.Id.ToString(),
+                UserId = user.UserName,
                 UserName = user.UserName
             }),
-            issuer = _config["Jwt:Issuer"],
             issuedAt = DateTime.Now,
             user
         });
