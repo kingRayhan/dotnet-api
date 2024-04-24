@@ -1,0 +1,14 @@
+/Users/rayhan/code/dotnet-play/DatingApp/play/bin/Debug/net8.0/play
+/Users/rayhan/code/dotnet-play/DatingApp/play/bin/Debug/net8.0/play.deps.json
+/Users/rayhan/code/dotnet-play/DatingApp/play/bin/Debug/net8.0/play.runtimeconfig.json
+/Users/rayhan/code/dotnet-play/DatingApp/play/bin/Debug/net8.0/play.dll
+/Users/rayhan/code/dotnet-play/DatingApp/play/bin/Debug/net8.0/play.pdb
+/Users/rayhan/code/dotnet-play/DatingApp/play/obj/Debug/net8.0/play.GeneratedMSBuildEditorConfig.editorconfig
+/Users/rayhan/code/dotnet-play/DatingApp/play/obj/Debug/net8.0/play.AssemblyInfoInputs.cache
+/Users/rayhan/code/dotnet-play/DatingApp/play/obj/Debug/net8.0/play.AssemblyInfo.cs
+/Users/rayhan/code/dotnet-play/DatingApp/play/obj/Debug/net8.0/play.csproj.CoreCompileInputs.cache
+/Users/rayhan/code/dotnet-play/DatingApp/play/obj/Debug/net8.0/play.dll
+/Users/rayhan/code/dotnet-play/DatingApp/play/obj/Debug/net8.0/refint/play.dll
+/Users/rayhan/code/dotnet-play/DatingApp/play/obj/Debug/net8.0/play.pdb
+/Users/rayhan/code/dotnet-play/DatingApp/play/obj/Debug/net8.0/play.genruntimeconfig.cache
+/Users/rayhan/code/dotnet-play/DatingApp/play/obj/Debug/net8.0/ref/play.dll
