@@ -1,0 +1,29 @@
+- [] Controller, action, route attributes, Return type
+- [] Service Types
+- [] Dependency Injection
+- [] Dto -> fluent validation
+- [] Logging
+- [] Authorization, Custom Attributes
+- [] Linq -> Queryable, IQueryable
+- [] ORM
+    - [] Entity Framework Core
+    - [] MongoDB Driver
+    - [] Dapper
+- [] GraphQL
+- [] Threat and task management
+- [] Scheduler (Magnifier, Hangfire)
+
+
+# C# Basics
+- [] Classes, Properties, Methods, Constructors
+- [] Inheritance
+- [] Interfaces
+- [] Generics
+- [] Enums
+- [] Delegates
+- [] Events
+- [] Exceptions
+- [] Nullable
+- [] Async
+- [] Lambda Expressions
+- [] Extension Methods

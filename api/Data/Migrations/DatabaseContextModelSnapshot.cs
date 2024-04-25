@@ -21,23 +21,30 @@ namespace api.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("api.Entities.AppUser", b =>
+            modelBuilder.Entity("api.Modules.User.Entities.AppUser", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Email")
+                        .HasColumnType("text")
+                        .HasColumnName("email");
+
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("passwordHash");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("userName");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("users");
                 });
 #pragma warning restore 612, 618
         }

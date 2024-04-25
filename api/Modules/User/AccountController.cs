@@ -1,39 +1,31 @@
 using api.Common;
-using api.Common.Services;
 using api.Data;
-using api.Entities;
 using api.Modules.User.Dtos;
+using api.Modules.User.Entities;
+using IdentityUtility.Token;
+using IdentityUtility.Encryption;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Modules.User;
 
-public class AccountController: ApiBaseController
+public class AccountController(DatabaseContext dbContext, ITokenService tokenService) : ApiBaseController
 {
-    private readonly DatabaseContext _dbContext;
-    private readonly TokenService _tokenService;
-
-    public AccountController(DatabaseContext dbContext, TokenService tokenService)
-    {
-        _dbContext = dbContext;
-        _tokenService = tokenService;
-    }
-    
-    
     [HttpPost]
     public ActionResult<string> Register([FromBody] RegisterUserDto dto)
     {
         var passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
-        var user = _dbContext.Users.FirstOrDefault(u => u.UserName == dto.UserName);
+        var user = dbContext.Users.FirstOrDefault(u => u.UserName == dto.UserName || u.Email == dto.Email);
 
-        if (user != null) return BadRequest("Username already exists");
+        if (user != null) return BadRequest("Username or Email already exists");
         
         user = new AppUser
         {
             UserName = dto.UserName,
+            Email = dto.Email,
             PasswordHash = passwordHash
         };
-        _dbContext.Users.Add(user);
-        _dbContext.SaveChanges();
+        dbContext.Users.Add(user);
+        dbContext.SaveChanges();
         
         return Ok(user);
     }
@@ -41,19 +33,17 @@ public class AccountController: ApiBaseController
     [HttpPost]
     public ActionResult<string> Login([FromBody] LoginUserDto dto)
     {
-        var user = _dbContext.Users.SingleOrDefault(u => u.UserName == dto.UserName);
+        var user = dbContext.Users.SingleOrDefault(u => u.UserName == dto.UserNameOrEmail || u.Email == dto.UserNameOrEmail);
         
         if (user == null) return Unauthorized();
-        if(!BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash)) return Unauthorized();
-        
-        
+        if(!EncryptionBcrypt.VerifyPassword(dto.Password, user.PasswordHash)) return Unauthorized();
 
         return Ok(new
         {
-            token = _tokenService.GenerateToken(new GenerateTokenPayload
+            token = tokenService.GenerateToken(new GenerateTokenPayload
             {
                 UserId = user.UserName,
-                UserName = user.UserName
+                DisplayName = user.UserName,
             }),
             issuedAt = DateTime.Now,
             user

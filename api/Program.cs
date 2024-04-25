@@ -1,6 +1,7 @@
 using System.Text;
-using api.Common.Services;
 using api.Data;
+using api.Modules.User;
+using IdentityUtility.Token;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -12,7 +13,22 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<TokenService>();
+
+var jwtAudience = builder.Configuration.GetSection("Jwt:Audience").Get<string>();
+var jwtIssuer = builder.Configuration.GetSection("Jwt:Issuer").Get<string>();
+var jwtSecret = builder.Configuration.GetSection("Jwt:Secret").Get<string>();
+
+builder.Services.AddScoped<ITokenService,TokenService>(_ => new TokenService(new TokenServiceConfig
+{
+    Issuer = jwtIssuer,
+    Audience = jwtAudience,
+    Secret = jwtSecret
+}));
+
+builder.Services.AddScoped<BCrypt.Net.BCrypt>();
+
+
+
 
 builder.Services.AddDbContext<DatabaseContext>(options =>
 {
@@ -20,9 +36,7 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
 });
 
 
-var jwtAudience = builder.Configuration.GetSection("Jwt:Audience").Get<string>();
-var jwtIssuer = builder.Configuration.GetSection("Jwt:Issuer").Get<string>();
-var jwtSecret = builder.Configuration.GetSection("Jwt:Secret").Get<string>();
+
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -59,5 +73,4 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
 app.Run();

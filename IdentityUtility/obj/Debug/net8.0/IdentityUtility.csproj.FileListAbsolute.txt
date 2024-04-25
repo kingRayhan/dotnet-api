@@ -1,0 +1,13 @@
+/Users/rayhan/code/dotnet-play/DatingApp/IdentityUtility/bin/Debug/net8.0/IdentityUtility.deps.json
+/Users/rayhan/code/dotnet-play/DatingApp/IdentityUtility/bin/Debug/net8.0/IdentityUtility.dll
+/Users/rayhan/code/dotnet-play/DatingApp/IdentityUtility/bin/Debug/net8.0/IdentityUtility.pdb
+/Users/rayhan/code/dotnet-play/DatingApp/IdentityUtility/obj/Debug/net8.0/IdentityUtility.csproj.AssemblyReference.cache
+/Users/rayhan/code/dotnet-play/DatingApp/IdentityUtility/obj/Debug/net8.0/IdentityUtility.GeneratedMSBuildEditorConfig.editorconfig
+/Users/rayhan/code/dotnet-play/DatingApp/IdentityUtility/obj/Debug/net8.0/IdentityUtility.AssemblyInfoInputs.cache
+/Users/rayhan/code/dotnet-play/DatingApp/IdentityUtility/obj/Debug/net8.0/IdentityUtility.AssemblyInfo.cs
+/Users/rayhan/code/dotnet-play/DatingApp/IdentityUtility/obj/Debug/net8.0/IdentityUtility.csproj.CoreCompileInputs.cache
+/Users/rayhan/code/dotnet-play/DatingApp/IdentityUtility/obj/Debug/net8.0/IdentityUtility.sourcelink.json
+/Users/rayhan/code/dotnet-play/DatingApp/IdentityUtility/obj/Debug/net8.0/IdentityUtility.dll
+/Users/rayhan/code/dotnet-play/DatingApp/IdentityUtility/obj/Debug/net8.0/refint/IdentityUtility.dll
+/Users/rayhan/code/dotnet-play/DatingApp/IdentityUtility/obj/Debug/net8.0/IdentityUtility.pdb
+/Users/rayhan/code/dotnet-play/DatingApp/IdentityUtility/obj/Debug/net8.0/ref/IdentityUtility.dll

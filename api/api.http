@@ -1,6 +1,29 @@
 @api_HostAddress = http://localhost:5232
+ 
 
-GET {{api_HostAddress}}/weatherforecast/
+#GET {{api_HostAddress}}/Users/GetAllUsers
+#Content-Type: application/json
+#Accept: application/json
+#
+
+
+#POST {{api_HostAddress}}/Account/Register
+#Content-Type: application/json
+#Accept: application/json
+#
+#{
+#  "userName": "rayhan2",
+#  "email": "rayhan2@gmail.com",
+#  "password": "rayhan123"
+#}
+
+
+POST {{api_HostAddress}}/Account/Login
+Content-Type: application/json
 Accept: application/json
 
-###
+{
+  "userNameOrEmail": "rayhan2",
+  "password": "rayhan123"
+}
+

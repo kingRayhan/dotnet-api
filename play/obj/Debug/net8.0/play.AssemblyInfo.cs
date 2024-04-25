@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("play")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c08741f01781a8014a152e4e790fe4c6c1f6934d")]
 [assembly: System.Reflection.AssemblyProductAttribute("play")]
 [assembly: System.Reflection.AssemblyTitleAttribute("play")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
